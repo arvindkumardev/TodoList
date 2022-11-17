@@ -1,6 +1,10 @@
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {AddTodo, RemoveTodo} from '../redux/actions/todoAction/todoActions';
+import {
+  AddTodo,
+  RemoveTodo,
+  UpdateTodo,
+} from '../redux/actions/todoAction/todoActions';
 // import {AddTodo, RemoveTodo} from '../actions/todoAction/todoActions';
 import {styles} from './Styles';
 import {
@@ -40,22 +44,23 @@ const Todo = () => {
     }
   };
 
-  // const updateTodo = item => {
+  // const onUpdate = item => {
   //   console.log('aaa', item);
   //   setTodoValue(item);
   //   setID(item);
   //   setEditState(true);
   // };
 
-  // const onUpdate = () => {
+  // const updateTodo = () => {
+  //   console.log("7890",todoValue);
   //   todos.map(ele => {
   //     if (ele == id) {
   //       ele = todoValue;
   //     }
   //     console.log("555",ele);
   //   });
-
-  //   setEditState(false);
+  //   console.log("789",todos);
+  //    setEditState(false);
   // };
 
   const renderTodoList = () => {
@@ -81,7 +86,6 @@ const Todo = () => {
 
   return (
     <SafeAreaView>
-      {/* <ScrollView> */}
       <View style={styles.main}>
         <Text style={styles.listTitle}>Todo List</Text>
         <TextInput
@@ -90,21 +94,19 @@ const Todo = () => {
           placeholder={'Add your todo here'}
           value={todoValue}
         />
-        {/* <Button name="increase" title="Add Todo" onPress={addTodo} /> */}
         <TouchableOpacity
           onPress={addTodo}
-          // onPress={editState === true ? onUpdate : addTodo}
+          // onPress={editState === true ? updateTodo : addTodo}
           style={styles.addTodoButton}>
           <Text style={styles.buttonText}>
-            {/* {editState === true ? 'update' : 'add'} */}
-            add
+            {/* {editState === true ? 'Update List' : 'Add List'} */}
+            Add List
           </Text>
         </TouchableOpacity>
 
         <Text style={styles.todoItems}>Todo Items :</Text>
         {renderTodoList()}
       </View>
-      {/* </ScrollView> */}
     </SafeAreaView>
   );
 };

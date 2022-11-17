@@ -58,6 +58,7 @@ const TodoStyles = {
     color: '#000',
     fontSize: 25,
     fontWeight: 'bold',
+    marginTop: 20,
   },
 };
 export const styles = StyleSheet.create(TodoStyles);
